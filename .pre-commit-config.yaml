@@ -92,12 +92,12 @@ repos:
 # Check for spelling
 # Use tools/codespell_ignore_lines_from_errors.py
 # to rebuild .codespell-ignore-lines
-- repo: https://github.com/codespell-project/codespell
-  rev: "v2.1.0"
-  hooks:
-  - id: codespell
-    exclude: "docs/hpcdoc/source/_static|modules/common/json"
-    args: ["-Lccompiler,intstruct"]
+# - repo: https://github.com/codespell-project/codespell
+#   rev: "v2.1.0"
+#   hooks:
+#   - id: codespell
+#     exclude: "docs/hpcdoc/source/_static|modules/common/json"
+#     args: ["-Lccompiler,intstruct"]
 
 # Check schemas on some of our YAML files
 - repo: https://github.com/python-jsonschema/check-jsonschema

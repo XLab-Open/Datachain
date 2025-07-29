@@ -28,7 +28,7 @@ namespace py = pybind11;
 // object info to  json
 void saveToJson(const string& file,
     std::vector<ObjectInfo>& objectinfo) {
-    
+
     // coco class map
     int to_coco90_class_map[] = {
         1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 27, 28, 31, 32, 33, 34,

@@ -30,13 +30,13 @@ Visit our documentation to learn more.
 - [Quickstart](./docs/hpcdoc/source/getting_started/Quickstart.md)
 
 # Performances
-- Dataset: 
+- Dataset:
     - pascal voc
         > The validation dataset is voc2012.
     - BDD100K
         > The validation dataset is BDD100K, which contains 70000 training samples and 10000 val samples.
     - nuscenes
-        > The validation dataset is nuscenes-mini. 
+        > The validation dataset is nuscenes-mini.
 - Model: The deployed model is the 's' version of the YOLO multi-task network series.
 - Quantize: Quantization was performed using NVIDIA's Post-Training Quantization (PTQ) method.
 
