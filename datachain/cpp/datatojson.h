@@ -60,7 +60,7 @@ void saveToJson(const string& file,
 
 }
 
-// 绑定 C++ 代码到 Python
+// Binding C++ code to python
 PYBIND11_MODULE(example, m) {
     m.def("add", &add, "A function that adds two numbers");
 

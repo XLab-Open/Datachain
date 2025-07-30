@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="./docs/images/datachain.png" width="600" height="200">
+<img src="./docs/images/datachain.png" width="600" height="160">
 
 <h2 align="center">AI model deployment based on embedded domain controller platforms</h2>
 
