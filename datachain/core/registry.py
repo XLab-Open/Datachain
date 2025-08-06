@@ -329,76 +329,14 @@ class ClassRegistryFactory:
             return False
 
         # Custom validation
-        if validator and not validator(name, cls):
-            self._logger.error(f"Custom validation failed: {name}")
-            return False
+        if validator:
+            try:
+                result = validator(name, cls)
+                if not result:
+                    self._logger.error(f"Custom validation failed: {name}")
+                    return False
+            except Exception as e:
+                self._logger.error(f"Custom validator raised exception: {e}")
+                return False
 
         return True
-
-
-# Global factory instance
-default_factory = ClassRegistryFactory("default")
-
-
-# Example usage
-if __name__ == "__main__":
-    # Create factory instance
-    factory = ClassRegistryFactory("data_converters")
-
-    # Method 1: Direct registration
-    class CSVConverter:
-        def __init__(self, delimiter=","):
-            self.delimiter = delimiter
-
-        def convert(self, data):
-            return f"CSV: {data}"
-
-    factory.register(
-        name="csv",
-        cls=CSVConverter,
-        description="CSV format converter",
-        tags=["format", "csv", "converter"],
-        metadata={"version": "1.0", "author": "system"}
-    )
-
-    # Method 2: Decorator registration
-    @factory.register_decorator(
-        name="json",
-        description="JSON format converter",
-        tags=["format", "json", "converter"]
-    )
-    class JSONConverter:
-        def __init__(self, indent=2):
-            self.indent = indent
-
-        def convert(self, data):
-            return f"JSON: {data}"
-
-    # Method 3: Using the global factory
-    @default_factory.register_decorator("xml", tags=["format", "xml"])
-    class XMLConverter:
-        def convert(self, data):
-            return f"XML: {data}"
-
-    # Test features
-    print("=== Registry summary ===")
-    print(factory.get_summary())
-
-    print("\n=== All registered classes ===")
-    print(factory.list_all())
-
-    print("\n=== Find by tag ===")
-    print(factory.list_by_tag("converter"))
-
-    print("\n=== Create instance ===")
-    csv_instance = factory.create("csv", delimiter=";")
-    if csv_instance:
-        print(csv_instance.convert("test data"))
-
-    print("\n=== Search feature ===")
-    results = factory.search("format")
-    print(f"Search 'format': {results}")
-
-    print("\n=== Validate feature ===")
-    is_valid = factory.validate_registration("test", CSVConverter)
-    print(f"Validate result: {is_valid}")
