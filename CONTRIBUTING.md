@@ -66,6 +66,26 @@ pre-commit is used as the linter and code formatter for Python code in the Warp 
 - Using pip (optional)
     - **Run tests**: `pre-commit run --all-files`.
 
+### CI/CD Pipeline
+
+The project uses GitHub Actions for continuous integration. The following workflows run automatically:
+
+- **Test**: Runs tests across Python 3.8-3.12 with coverage reporting
+- **Lint**: Runs code quality checks (spell check, shell check, C++ lint)
+
+#### Running CI Checks Locally
+
+Before submitting a PR, run the CI checks locally:
+
+```shell
+# Run all CI checks (format, lint, type-check, test)
+make ci-local
+
+# Or run individual checks:
+make ci-lint      # Run pre-commit hooks
+make ci-test      # Run tests with coverage
+```
+
 ### Testing
 The main test code is located in the tests directory.
 - Using uv (optional)

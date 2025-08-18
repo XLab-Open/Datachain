@@ -1,6 +1,6 @@
 # Makefile for Datachain project
 
-.PHONY: help install install-dev test test-unit test-integration test-slow test-cov test-html clean lint format type-check uv-venv uv-activate uv-install uv-install-dev uv-test uv-pre-commit-install
+.PHONY: help install install-dev test test-unit test-integration test-slow test-cov test-html clean lint format type-check uv-venv uv-activate uv-install uv-install-dev uv-test uv-pre-commit-install ci-test ci-lint ci-format ci-type-check ci-build
 
 # Default target
 help:
@@ -74,3 +74,13 @@ uv-test:
 
 uv-pre-commit:
 	$(UV) run pre-commit run --all-files
+
+# CI workflow simulation
+ci-test:
+	$(UV) run pytest --cov=datachain --cov-report=xml --cov-report=term-missing
+
+ci-lint:
+	$(UV) run pre-commit run --all-files
+
+# Local CI simulation (run all checks)
+ci-local: ci-format ci-lint
