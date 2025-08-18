@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+datachain/benchmark_data.py
+datachain.egg-info/PKG-INFO
+datachain.egg-info/SOURCES.txt
+datachain.egg-info/dependency_links.txt
+datachain.egg-info/requires.txt
+datachain.egg-info/top_level.txt
+datachain/core/__init__.py
+datachain/core/registry.py

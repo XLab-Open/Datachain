@@ -1,6 +1,6 @@
 # Makefile for Datachain project
 
-.PHONY: help install install-dev test test-unit test-integration test-slow test-cov test-html clean lint format type-check
+.PHONY: help install install-dev test test-unit test-integration test-slow test-cov test-html clean lint format type-check uv-venv uv-activate uv-install uv-install-dev uv-test uv-pre-commit-install
 
 # Default target
 help:
@@ -58,3 +58,19 @@ clean:
 	rm -rf .mypy_cache/
 	find . -type d -name __pycache__ -exec rm -rf {} +
 	find . -type f -name "*.pyc" -delete
+
+# uv-based workflow
+UV ?= uv
+
+uv-venv:
+	rm -rf .venv
+	$(UV) venv --python python3.11
+
+uv-install-dev:
+	$(UV) pip install -e ".[dev]"
+
+uv-test:
+	$(UV) run pytest
+
+uv-pre-commit:
+	$(UV) run pre-commit run --all-files

@@ -21,19 +21,6 @@ ci:
 
 repos:
 
-# # Check static types with mypy
-# - repo: https://github.com/pre-commit/mirrors-mypy
-#   rev: "v1.11.2"
-#   hooks:
-#   - id: mypy
-#     args: []
-#     exclude: ^(test|docs)/
-#     additional_dependencies:
-#     - markdown-it-py
-#     - nox
-#     - rich
-#     - types-setuptools
-
 # CMake formatting
 - repo: https://github.com/cheshirekow/cmake-format-precommit
   rev: "v0.6.13"
@@ -88,16 +75,6 @@ repos:
   - id: rst-backticks
   - id: rst-directive-colons
   - id: rst-inline-touching-normal
-
-# Check for spelling
-# Use tools/codespell_ignore_lines_from_errors.py
-# to rebuild .codespell-ignore-lines
-# - repo: https://github.com/codespell-project/codespell
-#   rev: "v2.1.0"
-#   hooks:
-#   - id: codespell
-#     exclude: "docs/hpcdoc/source/_static|modules/common/json"
-#     args: ["-Lccompiler,intstruct"]
 
 # Check schemas on some of our YAML files
 - repo: https://github.com/python-jsonschema/check-jsonschema
