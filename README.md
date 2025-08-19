@@ -26,7 +26,42 @@ The repository focuses on converting formats across multiple open-source dataset
 
 # Getting Started
 Visit our documentation to learn more.
-- [Installation](./docs/installation.md)
+## Installation
+clone thee remote remote repository
+```shell
+git clone https://github.com/XLab-Open/Datachain
+cd Datachain
+```
+Generate a local conda environment:
+- uv (optional)
+    ```shell
+    - Install uv:  see the [installation guide](https://docs.astral.sh/uv/getting-started/installation/).
+    - Create virtualenv:
+        uv venv --python python3.11 and then source .venv/bin/activate.
+    ```
+- pip(optional)
+    ```shell
+    conda create -n datachain python==3.11 -y
+    conda activate datachain
+    ```
+Install dependencies:
+- uv (optional)
+    ```shell
+        uv pip install -e .
+    ```
+
+- pip (optional)
+    ```shell
+    pip install -r requirements.txt
+    ```
+
+## CLI Usage
+You can also try out the CLI directly by running:
+```shell
+python -m cli.main
+```
+You will see a screen.
+![layout](docs/images/layout.png)
 
 # Performances
 - Dataset:

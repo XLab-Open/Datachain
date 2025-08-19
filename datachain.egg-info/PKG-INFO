@@ -16,6 +16,9 @@ Classifier: Programming Language :: Python :: 3.12
 Requires-Python: >=3.8.1
 Description-Content-Type: text/markdown
 License-File: LICENSE
+Requires-Dist: rich>=14.0.0
+Requires-Dist: typer>=0.16.1
+Requires-Dist: typing-extensions>=4.14.0
 Provides-Extra: dev
 Requires-Dist: pytest>=7.0.0; extra == "dev"
 Requires-Dist: pytest-cov>=4.0.0; extra == "dev"

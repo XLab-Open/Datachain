@@ -9,3 +9,6 @@ pytest>=7.0.0
 pytest-cov>=4.0.0
 pytest-mock>=3.10.0
 pytest-xdist>=3.0.0
+rich>=14.0.0
+typer>=0.16.1
+typing-extensions>=4.14.0
